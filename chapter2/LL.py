@@ -31,13 +31,18 @@ class LinkedList:
             current = current.nextNode
         self.tail = current
 
-    def getLengthLL(myLL):
+    def getLengthLL(self):
         count = 0
-        currentNode = self.head
+        currentNode = self.returnHead()
         while currentNode.nextNode != None:
             currentNode = currentNode.nextNode
-            #print(currentNode.value)
             count += 1
-        return count   
-
+        return count 
+  
+    def print(self):
+        currentNode = self.returnHead()
+        while currentNode.nextNode != None:
+            currentNode = currentNode.nextNode
+            print(currentNode.value)
+        print("----")
 

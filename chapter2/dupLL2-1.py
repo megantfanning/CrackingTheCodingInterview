@@ -1,10 +1,8 @@
 import LL
 
-#TODO linkedList = input(give me a space seperated linkedlist)
-
 #initialize a LL
-myLL = LL.LinkedList(1)
-for i in range(0,10):
+myLL = LL.LinkedList(0)
+for i in range(1,10):
     myLL.push(i)
 
 def printLL(myLL):
