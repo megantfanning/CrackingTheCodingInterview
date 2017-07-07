@@ -8,7 +8,7 @@ for i in range(7,9):
 for i in range(1,4):
     myLL.push(i)
 
-def sum(aLL):
+def sumReverse(aLL):
     count = 0
     # move fast pointer ahead
     fast = aLL.returnHead()
@@ -44,9 +44,46 @@ def sum(aLL):
 
     return answer
 
+#follow up what if the numbers are stored in standard order 6->1->7 ->3->1->2 617+312
+
+def sum(myLL):
+    count = 0
+    # move fast pointer ahead
+    fast = aLL.returnHead()
+    while fast.nextNode != None and count < 3 :
+        fast = fast.nextNode
+        #print(currentNode.value)
+        count += 1
+    slow = aLL.returnHead()
+    #create new LL
+    answer = LL.LinkedList(0)
+    count = 0
+
+    while fast != None:
+        count +=1
+        new = slow.value + fast.value
+        #handle overflow
+        if new > 9:
+            print(new)
+            #handle overflow addition
+            new = new-10
+            overflow = count
+        answer.push(new)
+        slow =slow.nextNode
+        fast =fast.nextNode
+    #percolate overflow values up the stack
+    while overflow:
+        print("overflow")
+        new = answer[overflow] + 1
+        if new > 9:
+            overflow = True
+
+    return answer
+
 #myLL.print()
+answer = sumReverse(myLL)
+answer.print()
 answer = sum(myLL)
 print("answer:")
 answer.print()
 
-#follow up what if the numbers are stored in standard order 6->1->7 ->3->1->2 617+312
